@@ -3,8 +3,75 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#E1F5FE"
+    android:layout_margin="16dp"
     android:orientation="vertical">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Dado o array:"
+            android:textSize="34sp"
+            android:gravity="center" />
+
+        <TextView
+            android:id="@+id/texto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="{ 2, 5, -1, 6, 10, -2 }"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:gravity="center" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="end"
+        android:weightSum="1">
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <AutoCompleteTextView
+                android:id="@+id/textoDigitado"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Número"
+                android:maxLines="1"
+                android:inputType="number"
+                android:singleLine="true" />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <Button
+            android:id="@+id/btVerificaPalindromo"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="calcular"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Existe 5 pares possíveis com esse número."
+            android:textSize="20sp"
+            android:gravity="center" />
+
+    </LinearLayout>
 
 </LinearLayout>
