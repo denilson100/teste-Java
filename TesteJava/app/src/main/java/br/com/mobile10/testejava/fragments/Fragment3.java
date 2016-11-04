@@ -5,6 +5,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import br.com.mobile10.testejava.R;
 
@@ -14,6 +15,7 @@ import br.com.mobile10.testejava.R;
  */
 public class Fragment3 extends Fragment implements View.OnClickListener {
 
+    private TextView textoCode;
 
     public Fragment3(){
 
@@ -31,6 +33,21 @@ public class Fragment3 extends Fragment implements View.OnClickListener {
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
+        // Referencia os ids correspondentes
+        textoCode = (TextView) getActivity().findViewById(R.id.code);
+        textoCode.setText("<code>");
+
+        /**
+         * Li e perguntei bastante sobre essa implementação, pois nunca utilizei.
+         * Não cheguei a uma conclusão correta de como implementar.
+         * Se eu fosse fazer com base no que li, tentaria ler o arquivo proposto com 10GB e gravar
+         * direto no DB, separando as frases em cada indice. Depois tentar ordenar e apresentar as
+         * 50 mil mais frequente.
+         * Mas teria que testar se é possível executar, performace, etc... Não tenho certeza se funcionaria.
+         * Até hoje não consegui realizar o desafio, mas vou continuar tentando a solução e conseguindo,
+         * atualizo no github.
+         */
+
     }
 
     @Override
@@ -39,4 +56,5 @@ public class Fragment3 extends Fragment implements View.OnClickListener {
 
         }
     }
+
 }

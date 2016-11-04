@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="16dp"
+    android:background="@color/azul_claro"
     android:orientation="vertical">
 
     <LinearLayout
@@ -18,7 +18,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="É Palindromo"
-            android:textColor="#fff"
+            android:textColor="@color/azul_claro"
             android:textSize="34sp"
             android:gravity="center" />
 
@@ -28,6 +28,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
+        android:padding="16dp"
         android:layout_weight="1">
 
         <LinearLayout
@@ -62,7 +63,38 @@
 
         <LinearLayout
             android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <Switch
+                android:text="Case Sencitive "
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:id="@+id/switch1"
+                android:gravity="center_vertical" />
+
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="bottom">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Alguns exemplos rápido."
+                android:textColor="#212121"
+                android:textSize="14sp"
+                android:gravity="center" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:gravity="center">
 
@@ -83,6 +115,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="José"/>
+
+        </LinearLayout>
 
         </LinearLayout>
 

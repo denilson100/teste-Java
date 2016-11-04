@@ -6,8 +6,10 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.Switch;
 import android.widget.TextView;
 
 import br.com.mobile10.testejava.R;
@@ -18,9 +20,11 @@ import br.com.mobile10.testejava.R;
  */
 public class Fragment1 extends Fragment implements View.OnClickListener {
 
-    TextView textoPalindromo;
-    EditText editText;
-    LinearLayout linearLayout;
+    private TextView textoPalindromo;       // Texto apresentado para o usuário
+    private EditText editText;              // Pega texto digitado pelo usuário
+    private LinearLayout linearLayout;      // Layout apresentado apenas quando o usuário faz a ação
+    private Switch chaveCaseSencitive;      // Botão que aciona se é case sencitive ou não
+    private boolean caseSensitive = false;  // Chave que representa o case sencitive
 
     public Fragment1(){
 
@@ -38,16 +42,31 @@ public class Fragment1 extends Fragment implements View.OnClickListener {
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
+        // Referencia os ids correspondentes
         textoPalindromo = (TextView) getActivity().findViewById(R.id.texto);
         textoPalindromo.setText("");
         editText = (EditText) getActivity().findViewById(R.id.textoDigitado);
         linearLayout = (LinearLayout) getActivity().findViewById(R.id.fundo);
+        chaveCaseSencitive = (Switch) getActivity().findViewById(R.id.switch1);
+
+        chaveCaseSencitive.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(caseSensitive == false) {
+                    chaveCaseSencitive.setChecked(true);
+                    caseSensitive = true;
+                } else {
+                    chaveCaseSencitive.setChecked(false);
+                    caseSensitive = false;
+                }
+
+            }
+        });
 
         getActivity().findViewById(R.id.btVerificaPalindromo).setOnClickListener(this);
         getActivity().findViewById(R.id.btExOvo).setOnClickListener(this);
         getActivity().findViewById(R.id.btEx1221).setOnClickListener(this);
         getActivity().findViewById(R.id.btExJose).setOnClickListener(this);
-
 
     }
 
@@ -58,13 +77,24 @@ public class Fragment1 extends Fragment implements View.OnClickListener {
 
         switch (v.getId()) {
 
+            // Nesse id vericica se a chave case sencitive esta acionada. Se sim, executa a comparação com case sensitive
             case R.id.btVerificaPalindromo:
-                if(inverterPalavra(palavraDigitada).equals(palavraDigitada)) {
-                    ePalindromo();
+                if(caseSensitive == true) {
+                    if (inverterPalavra(palavraDigitada).equals(palavraDigitada)) {
+                        ePalindromo();
+                    } else {
+                        naoEPalindromo();
+                    }
                 } else {
-                    naoEPalindromo();
+                    if (inverterPalavra(palavraDigitada).equalsIgnoreCase(palavraDigitada)) {
+                        ePalindromo();
+                    } else {
+                        naoEPalindromo();
+                    }
                 }
                 break;
+
+            // Alguns exemplos prontos. Apenas reproduz o texto.
             case R.id.btExOvo:
                 if(inverterPalavra("OVO").equals("OVO")) {
                     ePalindromo();
@@ -89,16 +119,27 @@ public class Fragment1 extends Fragment implements View.OnClickListener {
         }
     }
 
+    /**
+     * Metodo apenas seta o texto e cor de fundo se o palavra for Palindromo.
+     */
     public void ePalindromo(){
         textoPalindromo.setText("É Palindromo");
         linearLayout.setBackgroundColor(getActivity().getResources().getColor(R.color.verde));
     }
 
+    /**
+     * Metodo apenas seta o texto e cor de fundo se o palavra for não Palindromo.
+     */
     public void naoEPalindromo(){
         textoPalindromo.setText("Não é Palindromo");
         linearLayout.setBackgroundColor(getActivity().getResources().getColor(R.color.vermelho));
     }
 
+    /**
+     * Metodo para inverter as letras da palavra.
+     * @param textoDigitado
+     * @return palavraInvertida. string com as letras invertidas (da ultima para a primeira)
+     */
     public String inverterPalavra(String textoDigitado){
         String palavraInvertida = "";
         char arrayDeChar[] = textoDigitado.toCharArray();

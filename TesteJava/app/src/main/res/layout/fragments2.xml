@@ -3,7 +3,8 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="16dp"
+    android:padding="16dp"
+    android:background="@color/azul_claro"
     android:orientation="vertical">
 
     <LinearLayout
@@ -15,16 +16,23 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Dado o array:"
-            android:textSize="34sp"
+            android:textSize="24sp"
             android:gravity="center" />
 
         <TextView
-            android:id="@+id/texto"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="{ 2, 5, -1, 6, 10, -2 }"
+            android:text="{ 2, 5, 0, 7, 9, -2, 3, -1, 8 }"
             android:textSize="20sp"
             android:textStyle="bold"
+            android:gravity="center" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Digite um número para verificação de pares."
+            android:textSize="14sp"
             android:gravity="center" />
 
     </LinearLayout>
@@ -42,7 +50,7 @@
             android:layout_weight="1">
 
             <AutoCompleteTextView
-                android:id="@+id/textoDigitado"
+                android:id="@+id/pegaTexto"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Número"
@@ -53,7 +61,7 @@
         </android.support.design.widget.TextInputLayout>
 
         <Button
-            android:id="@+id/btVerificaPalindromo"
+            android:id="@+id/calcular"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:text="calcular"/>
@@ -61,15 +69,26 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/resultado"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:visibility="invisible"
         android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/numeroDePares"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="5"
+            android:textStyle="bold"
+            android:textSize="34sp"
+            android:gravity="center" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Existe 5 pares possíveis com esse número."
-            android:textSize="20sp"
+            android:text="é número de pares possíveis com esse número."
+            android:textSize="14sp"
             android:gravity="center" />
 
     </LinearLayout>
