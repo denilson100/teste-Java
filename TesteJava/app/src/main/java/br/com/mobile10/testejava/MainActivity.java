@@ -17,7 +17,7 @@ import br.com.mobile10.testejava.fragments.Fragment3;
 
 
 /**
- * Created by denilsonmonteiro on 08/08/16.
+ * Created by denilsonmonteiro on 01/11/16.
  */
 public class MainActivity extends AppCompatActivity {
 
@@ -49,7 +49,6 @@ public class MainActivity extends AppCompatActivity {
         tabLayout.getTabAt(1).setIcon(tabIcons[1]);
         tabLayout.getTabAt(2).setIcon(tabIcons[2]);
     }
-
 
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
@@ -87,6 +86,4 @@ public class MainActivity extends AppCompatActivity {
             return mFragmentTitleList.get(position);
         }
     }
-
-
 }
