@@ -44,7 +44,7 @@ public class Fragment3 extends Fragment implements View.OnClickListener {
          * direto no DB, separando as frases em cada indice. Depois tentar ordenar e apresentar as
          * 50 mil mais frequente.
          * Mas teria que testar se é possível executar, performace, etc... Não tenho certeza se funcionaria.
-         * Até hoje não consegui realizar o desafio, mas vou continuar tentando a solução e conseguindo,
+         * Até da entrega (hoje) não consegui realizar o desafio, mas vou continuar tentando a solução e conseguindo,
          * atualizo no github.
          */
 
